@@ -1,0 +1,59 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.body {
+  @include flex-center-align;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.face {
+  min-height: 500px;
+  width: 800px;
+  box-shadow: 0 0 5px #0dbab0, 0 0 10px #0dbab0, 0 0 15px #0dbab0 !important;
+}
+
+.pret {
+  background-color: $color_first;
+  margin-bottom: 20px !important;
+  font-family: $default-font-family;
+  color: $color_button;
+
+  &:hover {
+    background-color: $color_button;
+    color: white;
+  }
+}
+
+.solde {
+  box-shadow: none;
+  border: none;
+}
+
+.solde p {
+  font-size: 25px;
+  color: $color_second;
+  font-weight: bolder;
+  font-family: $default-font-family;
+}
+
+span {
+  color: $color_button !important;
+}
+
+.mat-tab-label {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: $color_third;
+  font-weight: 700;
+  font-family: $default-font-family;
+}
+
+.mat-tab-label.mat-tab-label-active {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: $color_button;
+  font-weight: 700;
+}

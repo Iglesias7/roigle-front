@@ -1,0 +1,33 @@
+<div class="body">
+  <div class="first">
+    <div class="search">
+      <form action="" class="formulaire">
+        <input class="champ"  [(ngModel)] = "mise" [ngModelOptions]="{standalone: true}" type="number" placeholder="1000" (keyup) = "updateUsers()" min="1000" />
+      </form>
+    </div>
+
+    <mat-list role="list" class="list">
+      <div *ngFor="let friend of friends">
+        <mat-card class="card" *ngIf="friend.isOpen">{{ friend.firstName }}{{ " "}}{{ friend.lastName }}
+          <button mat-raised-button class="take" (click)="select(friend)" >Inviter</button>
+        </mat-card>
+      </div>
+
+      <p class="not" *ngIf = "friends && friends.length === 0">Aucun amis disponible</p>
+
+      <div class="load" *ngIf="!friends">
+          <p>Chargement en cours ...</p>
+          <mat-spinner class="mat-spinner"></mat-spinner>
+      </div>
+    </mat-list>
+  </div>
+
+  <div class="play">
+    <mat-card class="cardP">Moi</mat-card>
+    <mat-card class="cardP">Contre</mat-card>
+    <mat-card class="cardP" *ngIf="adversaire">{{ adversaire.firstName }}{{ " " }}{{ adversaire.lastName }}</mat-card>
+    <mat-card class="cardP" *ngIf="!adversaire">Qui ?</mat-card>
+    <button mat-raised-button class="btn" (click)="play()">Jouer</button>
+  </div>
+
+</div>

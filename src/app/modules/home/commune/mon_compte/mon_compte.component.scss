@@ -1,0 +1,85 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.body {
+  padding: 5%;
+}
+
+.container {
+  width: 80%;
+  padding: 0 !important;
+  box-shadow: 0 0 5px #0dbab0, 0 0 10px #0dbab0, 0 0 15px #0dbab0;
+}
+
+.profile {
+  background-color: $color_first;
+  height: 150px;
+}
+
+img {
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: $color_second solid 3px;
+}
+
+.profile-name {
+  color: $color_second;
+  margin: 10px;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.editMsg {
+  margin-left: 450px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.editMsg > p {
+  background-color: $color_second;
+  color: white;
+  width: 345px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.editMsg > span {
+  color: $color_second;
+  padding: 2px;
+  margin-left: 15px;
+  font-size: 38px;
+  cursor: pointer;
+}
+
+.edit {
+  text-align: center;
+  display: inline;
+}
+
+.form {
+  width: 500px;
+  margin-left: 250px;
+}
+
+.form > mat-form-field {
+  width: 100%;
+}
+
+.btn {
+  margin: 55px !important;
+  margin-left: 75% !important;
+}
+
+.txt {
+  color: $color_first;
+  font-size: 25px;
+}

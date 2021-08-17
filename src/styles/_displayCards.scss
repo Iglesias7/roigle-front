@@ -1,0 +1,53 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+@import "src/styles/animations";
+
+.body{
+  @include flex-center-align;
+  width: 100%;
+  font-family: $default-font-family;
+  min-height: 400px;
+}
+
+p {
+  display: none;
+}
+
+.card {
+  width: 25%;
+  margin: 15px;
+  height: 200px;
+  font-family: $default-font-family;
+  padding: 0;
+  animation: fadein 2s ease-in-out;
+
+  &:hover {
+    .sous {
+      cursor: pointer;
+      height: 100%;
+      transition: height 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+
+    h3 {
+      margin: 15px;
+    }
+
+    p {
+      display: block;
+      animation: fadein 1s ease-in-out;
+    }
+  }
+}
+
+.sous {
+  width: 100%;
+  padding-top: 10%;
+  text-align: center;
+  background-color: #0dbab0;
+  opacity: 0.8;
+  color: #fff;
+  height: 40%;
+  bottom: 0;
+  position: absolute;
+  transition: height 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+}

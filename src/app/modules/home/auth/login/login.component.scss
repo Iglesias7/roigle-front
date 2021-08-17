@@ -1,0 +1,38 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.form {
+  margin-top: 15px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 3px;
+  width: 450px;
+  color: $color_first;
+}
+
+.icon {
+  color: $color_first;
+}
+
+.form mat-form-field {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  color: $color_first;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  word-wrap: break-word;
+}
+
+.btn {
+  width: 100%;
+}

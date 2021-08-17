@@ -1,0 +1,18 @@
+
+<app-header [inputSideNav]="sideNav"></app-header>
+<mat-sidenav-container>
+    <mat-sidenav  #sideNav fixedTopGap="56"
+        class="menu"
+        [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [opened]="mobileQuery.matches ? null : false"
+        [fixedInViewport]="mobileQuery.matches"
+        (click)="mobileQuery.matches ? sideNav.close() : null;">
+        <app-menu *ngIf="currentUser"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer></app-footer>

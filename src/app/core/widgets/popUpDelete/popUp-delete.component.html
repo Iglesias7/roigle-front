@@ -1,0 +1,12 @@
+<div>
+  <p class="title">ALERTE DE SUPRESSION</p>
+  <div class="body">
+    <p class="text">{{ data.text }}</p>
+
+    <div class="btn">
+      <button mat-raised-button class="sup" (click) = 'delete()'>Je supprime</button>
+      <button mat-raised-button class="nosup" (click) = 'cancel()'>Je ne supprime pas</button>
+    </div>
+  </div>
+</div>
+

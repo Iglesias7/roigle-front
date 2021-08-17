@@ -1,0 +1,63 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+
+.body {
+  padding: 50px;
+  min-height: 400px;
+}
+
+.title{
+  text-align: center;
+  color: $color_button;
+}
+
+.nbResponses {
+  margin-top: 20px;
+  background-color: $color_second;
+  color: $color_button;
+}
+
+.icon {
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.reponse {
+  margin-top: 20px;
+  background-color: $color_first;
+  color: white;
+}
+
+.load {
+  margin-top: 8%;
+  text-align: center;
+  color: $color_button;
+
+  .mat-spinner {
+    margin-left: 45%;
+  }
+}
+
+.texarea {
+  width: 100%;
+  color: white;
+}
+
+textarea {
+  height: 250px !important;
+  resize: none;
+}
+
+.btn-reponse{
+  margin-top: 10px;
+  background-color: $color_first;
+  color: white;
+
+  &:hover {
+    background-color: $color_button;
+  }
+}

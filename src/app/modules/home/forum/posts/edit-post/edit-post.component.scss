@@ -1,0 +1,42 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.form .form {
+  margin-top: 15px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: auto;
+  grid-row-gap: 10px;
+  margin: 3px;
+}
+
+.title {
+  padding: 10px;
+  background-color: $color_first;
+  color: white;
+}
+
+.body {
+  display: block;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  height: 100px;
+}
+
+.footer {
+  display: grid;
+  justify-items: stretch;
+  align-items: center;
+  grid-template-columns: auto auto;
+  margin-top: 30px;
+  background-color: white;
+}
+

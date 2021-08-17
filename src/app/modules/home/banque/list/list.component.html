@@ -1,0 +1,51 @@
+
+<mat-card *ngIf = "type === 3">
+  <mat-card-content>
+    <mat-card *ngFor = "let ems of empruntsSend" class="card">
+      <p> <span >J'ai demander un pret à {{ ems.donneur? ems.donneur?.lastName : " la banque la somme de " }}{{ " " }}</span> de  {{ ems.montant }} roig-coin
+          à remettre au plus tard le <span>{{ ems.delai }}</span>.</p>
+        <mat-card-actions>
+            <button mat-raised-button (click) = "message(ems)">Mon message</button>
+            <button mat-raised-button color = "warn" (click) = "annuler(ems)">Annuler</button>
+        </mat-card-actions>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf = "type === 1" class="example-card">
+  <mat-card-content>
+    <mat-card *ngFor = "let ems of emprunts" class="card">
+        <p> <span>{{ ems.demandeur?.lastName }}{{ " " }}{{ ems.demandeur?.firstName }}</span> vous doit {{ ems.montant }}
+          à remettre au plus tard le <span>{{ ems.delai }}</span>.</p>
+        <mat-card-actions>
+        </mat-card-actions>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf = "type === 4" class="example-card">
+  <mat-card-content>
+    <mat-card *ngFor = "let ems of pretsSend" class="card">
+        <p> <span>{{ ems.demandeur?.lastName }}{{ " " }}{{ ems.demandeur?.firstName }}</span> vous demande un pret de  {{ ems.montant }}
+          à remèttre au plus tard le <span>{{ ems.delai }}</span>.</p>
+        <mat-card-actions>
+            <button mat-raised-button (click) = "message(ems)">Son message</button>
+            <button mat-raised-button (click) = "preter(ems)">Je prete</button>
+            <button mat-raised-button (click) = "refuser(ems)">Je refuse le pret</button>
+        </mat-card-actions>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf = "type === 2" class="example-card">
+  <mat-card-content>
+    <mat-card *ngFor = "let ems of prets" class="card">
+        <p> <span>Je dois {{ ems.montant }} à {{ ems.donneur? ems.donneur?.lastName : ' à la banque' }}</span>
+          à remettre au plus tard le <span>{{ ems.delai }}</span>.</p>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf = "ems.donneur"  (click) = "rembourser(ems)">Je rembourse</button>
+            <button mat-raised-button *ngIf = "!ems.donneur"  (click) = "rembourserBanque(ems)">Je rembourse</button>
+        </mat-card-actions>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

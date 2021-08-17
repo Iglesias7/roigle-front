@@ -1,0 +1,18 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+div {
+  margin-bottom: 300px;
+}
+
+p {
+  color: $color_button;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.mat-spinner {
+  margin-left: 45%;
+}

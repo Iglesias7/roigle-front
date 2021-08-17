@@ -1,0 +1,27 @@
+
+<mat-card class="card">
+
+  <mat-card-header>
+    <mat-card-title><span class="text">post at {{post?.timestamp | timeAgo}}</span></mat-card-title>
+    <mat-card-title >
+      <ngx-md>
+        {{ post?.body || 'charge ...' }}
+      </ngx-md>
+    </mat-card-title>
+    <mat-card-subtitle>éditer par <span class="text">{{post?.user?.firstName || 'charge ...'}}</span> et sa réputation est de <span class="text">{{post?.user?.reputation || 'charge ...' }}</span></mat-card-subtitle>
+  </mat-card-header>
+
+  <div class="bt" *ngIf = "currentUser.isAdmin || post?.user.id === currentUser.id">
+    <button mat-raised-button class="update" (click) = "update()">Modifier</button>
+    <button mat-raised-button class="delet" *ngIf = "post?.nbResponses == 0 && post?.comments.length == 0" (click) = "delete()">Supprimer</button>
+  </div>
+
+  <button class="show-comment" (click) = "comments = !comments">{{ post?.comments.length }} commentaire(s)</button>
+
+  <div *ngIf = "comments">
+    <mat-list>
+      <app-comment *ngFor="let comment of post?.comments" [comment]="comment"></app-comment>
+      <span class="material-icons add" (click)="comment()">add_circle</span>
+    </mat-list>
+  </div>
+</mat-card>

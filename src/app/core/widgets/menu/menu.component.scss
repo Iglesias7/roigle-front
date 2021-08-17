@@ -1,0 +1,24 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.mat-nav-list {
+  background-color: $color_menu;
+  height: 100%;
+  padding-top: 0;
+}
+
+.mat-nav-list a {
+  color: white;
+  font-weight: bolder;
+  font-family: $default-font-family;
+}
+
+.menu-actif {
+  background-color: $color_first !important;
+    color: white !important;
+}
+
+.material-icons {
+  margin-left: 20px;
+  font-size: 30px;
+}

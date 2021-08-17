@@ -1,0 +1,31 @@
+<div class="body">
+  <div>
+      <button mat-raised-button (click)="pretBancaire()" class = "pret">Pret bancaire</button>
+
+      <mat-card class="face">
+        <mat-card-content>
+          <div class="solde">
+            <p>Votre solde: <span>{{currentUser?.compte.solde || 'chargement en cours ...'}} roig-coin</span> </p>
+          </div>
+
+          <mat-tab-group>
+            <mat-tab label="Ceux qui me doivent">
+              <app-list [type]="1"></app-list>
+            </mat-tab>
+
+            <mat-tab label="Mes dettes">
+              <app-list [type]="2"></app-list>
+            </mat-tab>
+
+            <mat-tab label="Les demandes que j'ai fait">
+              <app-list [type]="3"></app-list>
+            </mat-tab>
+
+            <mat-tab label="Les demandes qu'on m'a fait">
+              <app-list [type]="4"></app-list>
+            </mat-tab>
+          </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+  </div>
+</div>

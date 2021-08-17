@@ -1,0 +1,63 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.form .form {
+  margin-top: 15px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: auto;
+  grid-row-gap: 10px;
+  margin: 3px;
+  font-family: $default-font-family;
+}
+
+.title {
+  padding: 10px;
+  background-color: $color_first;
+  color: white;
+  font-family: $default-font-family;
+}
+
+.body {
+  display: block;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-family: $default-font-family;
+}
+
+mat-form-field {
+  width: 100%;
+  font-family: $default-font-family;
+  color: $color_first;
+}
+
+textarea {
+  height: 100px;
+  font-family: $default-font-family;
+  color: $color_first;
+}
+
+.footer {
+  font-family: $default-font-family;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 30px;
+
+  background-color: white;
+}
+
+.footer button {
+  font-family: $default-font-family;
+  margin-left: 100px;
+}
+
+.footer button:hover {
+  font-family: $default-font-family;
+  background-color: $color_second;
+  color: white;
+}
+

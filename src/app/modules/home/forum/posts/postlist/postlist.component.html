@@ -1,0 +1,29 @@
+<div class="body">
+
+  <div class = "filtre">
+    <button mat-raised-button class="__btn" (click) = "addQuestion()">Poser une question</button>
+
+    <div class="search" *ngIf="posts" class="__search">
+      <form>
+        <input class="champ" type="text" (keyup)="filterChanged($event.target.value)" placeholder="Rechercher une question" appSetFocus/>
+      </form>
+    </div>
+  </div>
+
+  <mat-card class="card" *ngFor="let question of dataSources.data">
+    <mat-card-header>
+      <mat-card-title><span class="text">asked at {{question.timestamp | timeAgo}}</span></mat-card-title>
+      <mat-card-title><a class="title" [routerLink]='["/single-post/"+question.id]'>{{ question.title || '&nbsp;' }}</a></mat-card-title>
+      <mat-card-subtitle>Cette question a été posé par <span class="text">{{question.user.firstName || 'Roigle'}}</span> et sa réputation est de <span class="text">{{question.user.reputation }}</span> et a <span class="text">{{ question.numResponse! || '0' }} réponse(s)</span></mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-paginator *ngIf="posts && posts.length > 4" class="pagination" [showFirstLastButtons] = "true" [hidePageSize] = "true"  [length]="length" [pageSize]="pageSize"
+        (page)="pageEvent = onPageChange($event)"></mat-paginator>
+
+  <div class="load" *ngIf="!posts">
+    <p>Chargement en cours ...</p>
+    <mat-spinner class="mat-spinner"></mat-spinner>
+  </div>
+
+</div>

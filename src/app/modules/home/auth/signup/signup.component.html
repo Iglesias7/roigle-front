@@ -1,0 +1,112 @@
+<form id="signupForm" [formGroup]="form" novalidate>
+  <h1 class="header">Obtention de votre visa Roiglois.</h1>
+  <div class="form">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Votre nom</mat-label>
+        <input matInput placeholder="Votre nom" formControlName="firstName" required>
+        <mat-error class="field-error" *ngIf="form.get('firstName').hasError('required')">
+          Required
+        </mat-error>
+        <mat-error class="field-error" *ngIf="form.get('firstName').hasError('minlength')">
+          Minimum length is {{form.get('firstName').errors['minlength'].requiredLength}}
+        </mat-error>
+        <mat-error class="field-error" *ngIf="form.get('firstName').hasError('maxlength')">
+          Maximum length is {{form.get('firstName').errors['maxlength'].requiredLength}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Votre prénom</mat-label>
+        <input matInput placeholder="Votre prénom" formControlName="lastName" required>
+        <mat-error class="field-error" *ngIf="form.get('lastName').hasError('required')">
+          Required
+        </mat-error>
+        <mat-error class="field-error" *ngIf="form.get('lastName').hasError('minlength')">
+          Minimum length is {{form.get('lastName').errors['minlength'].requiredLength}}
+        </mat-error>
+        <mat-error class="field-error" *ngIf="form.get('lastName').hasError('maxlength')">
+          Maximum length is {{form.get('lastName').errors['maxlength'].requiredLength}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Votre adresse mail</mat-label>
+        <input matInput type="text" placeholder="Votre adresse mail" formControlName="email" required>
+        <mat-icon matSuffix class="icon">email</mat-icon>
+        <mat-error class="field-error" *ngIf="form.get('email').hasError('required')">
+          Required
+        </mat-error>
+        <mat-error class="field-error"
+                   *ngIf="form.get('email').hasError('pattern') || form.get('email').hasError('email')">
+          Email is not valid
+        </mat-error>
+        <mat-error class="field-error" *ngIf="form.get('email').hasError('emailUsed')">
+          This email adress is already used!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Votre date de naissance</mat-label>
+        <input autofocus readonly autocomplete="off" matInput [matDatepicker]="picker" formControlName="birthDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error class="field-error" *ngIf="form.get('birthDate').hasError('tooYoung')">
+          you re' too young
+        </mat-error>
+        <mat-error class="field-error" *ngIf="form.get('birthDate').hasError('futureBorn')">
+          this Birthdate is bad
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Votre mot de passe</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'"
+               placeholder="Votre mot de passe"
+               formControlName="password"
+               required autocomplete="new-password" >
+        <a mat-icon-button class="icon" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </a>
+        <mat-error class="field-error" *ngIf="form.get('password').hasError('required')">
+          Required
+        </mat-error>
+        <mat-error class="field-error" *ngIf="form.get('password').hasError('minlength')">
+          Minimum length is {{form.get('password').errors['minlength'].requiredLength}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Confirmez votre mot de passe</mat-label>
+        <input matInput [type]="hide2 ? 'password' : 'text'"
+               placeholder="Confirmez votre mot de passe"
+               formControlName="confirm_password" required >
+        <a mat-icon-button class="icon"
+           matSuffix (click)="hide2 = !hide2"
+           [attr.aria-label]="'Hide password'"
+           [attr.aria-pressed]="hide2" >
+          <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </a>
+        <mat-error class="field-error" *ngIf="form.get('confirm_password').hasError('required')">
+          Required
+        </mat-error>
+        <mat-error class="float-right" *ngIf="form.get('confirm_password').hasError('minlength')">
+          Minimum length is {{form.get('confirm_password').errors['minlength'].requiredLength}}
+        </mat-error>
+        <mat-error class="float-left" *ngIf="form.get('confirm_password').hasError('passwordNotConfirmed')">
+          The passwords don't match
+        </mat-error>
+      </mat-form-field>
+
+      <p>Déjà un compte ? <a style="color: blue;" (click)="connexion()">Connectez-vous</a> maintenant.</p>
+    </div>
+  </div>
+
+  <div class="btn">
+    <button mat-raised-button [disabled]="form.pristine || form.invalid || form.pending"
+            (click)="signup()" >
+      Demander un Visa
+    </button>
+  </div>
+</form>

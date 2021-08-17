@@ -1,0 +1,26 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.title {
+  padding: 10px;
+  background-color: $color_first;
+  color: white;
+  margin: 0;
+}
+
+.body {
+  display: block;
+  padding: 30px;
+  margin: 0 !important;
+  height: auto;
+  background-color: $color_third;
+  color: $color_button;
+}
+
+.footer {
+  margin-top: 10%;
+  margin-bottom: 0 !important;
+  background-color: transparent;
+  color: $color_button;
+}
+

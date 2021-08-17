@@ -1,0 +1,73 @@
+<header >
+    <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-color bg-border border-bottom box-shadow mb-3'>
+
+      <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
+                aria-label="Toggle navigation"
+                [attr.aria-expanded]="isExpanded" (click)="toggle()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <img class="ng-margin" src="assets/logos/roigle2.jpeg" width="100"/>
+        <a class="navbar-brand text-dark" [routerLink]='["/home"]'> <span class="ng-font">Roigle</span></a>
+
+        <div class="navbar-collapse collapse d-sm-inline-flex" [ngClass]='{"show": isExpanded}'>
+          <ul class="navbar-nav flex-grow mr-auto"></ul>
+          <ul class="navbar-nav">
+
+            <li *ngIf = "currentUser" class="nav-item" style="margin-right: 50px;">
+                <span><img    matTooltip="Nombre de maison" src="assets/logos/maison.jpg" style="width: 40px; border-radius: 50%"  alt="Nombre de maison"></span>
+                <span style="color: gold;"> {{user?.nbImmobiliers || 0}} </span>
+            </li>
+
+            <li *ngIf = "currentUser" class="nav-item" style="margin-right: 50px;">
+                <span>
+                    <img matTooltip="Nombre de voitures" src="assets/logos/car.jpg" style="width: 50px; border-radius: 50%"  alt="Nombre de voitures">
+                </span>
+                <span style="color: gold;"> {{user?.nbCars || 0}}</span>
+            </li>
+
+            <li *ngIf = "currentUser" class="nav-item" style="margin-right: 50px;" >
+                <span><img src="assets/logos/reputation.png" matTooltip="Réputation"  style="width: 30px; border-radius: 50%"  alt="reputation"></span>
+                <span style="color: gold; " [matBadge] = "reputation" matBadgeSize = "large" matBadgeColor = "warm"> Réputation </span>
+            </li>
+
+            <li *ngIf = "currentUser" class="nav-item" style="margin-right: 50px;">
+                <span><img    matTooltip="Rang social" src="assets/logos/vie.jpg" style="width: 40px; border-radius: 50%"  alt="qualityOfLife"></span>
+                <span style="color: gold;"> {{user?.qualityOfLife}} </span>
+            </li>
+            
+            <li *ngIf = "currentUser" class="nav-item" style="margin-right: 50px;">
+                <span>
+                    <img matTooltip="Moi" src="assets/logos/unknow.jpg" style="width: 50px; border-radius: 50%"  alt="men">
+                </span>
+                <span style="color: gold;"> {{user?.firstName}}{{ " " }}{{ user?.lastName }} </span>
+            </li>
+
+
+
+
+            <li *ngIf = "!currentUser" class="nav-item" [routerLinkActive]='["link-active"]' >
+              <a class="nav-link text-dark" [routerLink]='["/login"]'>
+                <span><mat-icon [routerLinkActive]='["link-active"]'>flight_land</mat-icon></span>
+                <span [routerLinkActive]='["link-active"]'> Voyager </span>
+              </a>
+            </li>
+
+            <li *ngIf = "!currentUser" class="nav-item" [routerLinkActive]='["link-active"]' >
+              <a class="nav-link text-dark" [routerLink]='["/signup"]'>
+                <span [routerLinkActive]='["link-active"]'><mat-icon>person_add</mat-icon></span>
+                <span [routerLinkActive]='["link-active"]'> Obtenir un visa </span>
+              </a>
+            </li>
+            <li *ngIf = "currentUser" class="nav-item" [routerLinkActive]='["link-active"]' >
+              <a class="nav-link text-dark" >
+                <span><mat-icon>person_add</mat-icon></span>
+                <span (click) = "logout()"> Quiter l'ile </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  </header>

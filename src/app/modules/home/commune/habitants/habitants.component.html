@@ -1,0 +1,150 @@
+<div class="body">
+
+  <div *ngIf = "users && users.length !== 0">
+    <p *ngIf="link == 'h'" class="title">
+      Vous pouvez demander l'amitier à un Habitant si ce n'est déjà pas le cas !
+    </p>
+    <p *ngIf = "link == 'fa'" class="title">
+      Vous pouvez annuler votre demande.
+    </p>
+    <p *ngIf="link == 'fr'" class="title">
+      Vous pouvez accepter ou refuser une demande.
+    </p>
+    <p *ngIf="link == 'f'" class="title">
+      Vous pouvez bloquer vos amis en cliquant sur le boutton 'unfollow'.
+    </p>
+  </div>
+
+  <div class="corps" *ngIf="users">
+    <div class="search" *ngIf="users">
+      <form action="" class="formulaire">
+        <input class="champ" type="text" (keyup)="filterChanged($event.target.value)" placeholder="Rechercher un habitant" appSetFocus/>
+      </form>
+    </div>
+
+    <div class="middle">
+      <mat-card class="card" *ngFor="let user of dataSources.data">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image">
+            <span class="material-icons img">
+              account_circle
+            </span>
+          </div>
+          <mat-card-title class="texte">{{ user.firstName }}{{ " "}}{{ user.lastName }}</mat-card-title>
+          <mat-card-subtitle class="texte">{{ user.email }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content class="content">
+          <li class="app-menu-item">
+            <a class="app-menu-link">
+              <span id="app-menu-voiture" class="app-menu-logo" [matBadge]="user.nbCars" matBadgeColor="accent">
+                V
+              </span>
+              <span class="app-menu-name">Voiture(s)</span>
+            </a>
+          </li>
+          <li class="app-menu-item">
+            <a id="app-menu-maison" class="app-menu-link">
+              <span id="app-menu-maison" class="app-menu-logo" [matBadge]="user.nbImmobiliers" matBadgeColor="accent">
+                M
+              </span>
+              <span class="app-menu-name">Maison(s)</span>
+            </a>
+          </li>
+          <li class="app-menu-item">
+            <a id="app-menu-reputation" class="app-menu-link">
+              <span id="app-menu-reputation" class="app-menu-logo" [matBadge]="user.reputation" matBadgeColor="accent">
+                R
+              </span>
+              <span class="app-menu-name">Réputation</span>
+            </a>
+          </li>
+        </mat-card-content>
+
+        <mat-card-actions class="button" *ngIf="currentUser.id !== user.id">
+          <button mat-raised-button
+            *ngIf="link == 'h' && !user.userIsFollow && !user.userIsFriends && !user.userIsReceive"
+            (click)="follow(user)" class="follow">
+            Follow
+            <span class="material-icons">
+              trending_flat
+            </span>
+          </button>
+
+          <button mat-raised-button
+                  *ngIf="currentUser.isAdmin && link == 'h'"
+                  (click)="update(user)"
+                  class="modifier">
+            Modifier
+            <span class="material-icons" >
+              create
+            </span>
+          </button>
+
+          <button mat-raised-button
+                  *ngIf="currentUser.isAdmin && link == 'h'"
+                  (click)="delete(user)"
+                  class="supprimer">
+            Supprimer
+            <span  class="material-icons">
+              delete
+            </span>
+          </button>
+
+          <button mat-raised-button *ngIf="currentUser && link == 'fr'" (click)="accepter(user)" color="primary">
+            Accepter
+            <span class="material-icons">
+              how_to_reg
+            </span>
+          </button>
+
+          <button mat-raised-button
+            *ngIf="currentUser && link == 'fa' || (link == 'h' && user.userIsFollow && !user.userIsFriends && !user.userIsReceive)"
+            (click)="annuler(user)" color="accent">
+            Annuler
+            <span class="material-icons">
+              undo
+            </span>
+          </button>
+
+          <button mat-raised-button *ngIf="currentUser && link == 'fr'" (click)="refuser(user)" color="accent">
+            Refuser
+            <span class="material-icons">
+              clear
+            </span>
+          </button>
+
+          <button mat-raised-button *ngIf="currentUser && link == 'f'" (click)="emprunter(user)"
+            color="accent">Emprunter</button>
+
+          <button mat-raised-button *ngIf="currentUser && link == 'f'" (click)="unfollow(user)" color="accent">
+            Unfollow
+            <span class="material-icons">
+              clear
+            </span>
+          </button>
+
+          <button mat-raised-button *ngIf="currentUser && link == 'h' && user.userIsFriends"
+            style="border: none; box-shadow: none; color: darkgreen; cursor: none;">Vous etes amis</button>
+
+          <button mat-raised-button *ngIf="currentUser && link == 'h' && user.userIsReceive"
+            style="border: none; box-shadow: none; color: rgb(12, 102, 102); cursor: none;">Vous demande</button>
+
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <mat-paginator *ngIf="users && users.length > 6" class="pagination" [showFirstLastButtons] = "true" [hidePageSize] = "true"  [length]="length" [pageSize]="pageSize"
+                   (page)="pageEvent = onPageChange($event)"></mat-paginator>
+
+  </div>
+
+  <div class="noUsers">
+    <h3 *ngIf="users?.length === 0 && link == 'h'">OUPS! PERSONNE SUR L'ile. BIZARD NON ?</h3>
+    <h3 *ngIf="users?.length === 0 && link == 'fa'">OUPS! VOUS N'AVEZ PAS FAIS DE DEMANDE</h3>
+    <h3 *ngIf="users?.length === 0 && link == 'fr'">OUPS! VOUS N'AVEZ PAS RECUS DE DEMANDE</h3>
+    <h3 *ngIf="users?.length === 0 && link == 'f'">OUPS! VOUS N'AVEZ PAS D'AMI.E.S</h3>
+  </div>
+
+  <app-loader *ngIf="!users" [message]="'Chargement en cours ...'"></app-loader>
+</div>

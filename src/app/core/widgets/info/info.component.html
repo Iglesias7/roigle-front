@@ -1,0 +1,56 @@
+<div class="app-menu">
+  <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of items" cdkDrag [cdkDragDisabled]="item.disabled">
+      <mat-card style="display: flex;" *ngIf = "item.value == 1">
+          <span class="material-icons img">
+              account_circle
+            </span>
+            <div style="font-size: 20px; margin-top: 16px; margin-left: 5px;">
+              {{ currentUser.lastName }}{{ " " }}{{ currentUser.firstName }}
+              <p style="font-size: 14px;">{{ currentUser.email }}</p>
+            </div>
+      </mat-card>
+      <mat-card style=" text-align: center; font-size: 20px;" *ngIf = "item.value == 2">
+          <p>{{ currentUser.compte.solde }} roigcoin en banque</p>
+      </mat-card>
+      <mat-card style=" text-align: center; font-size: 20px;" *ngIf = "item.value == 3">
+          <p>Je suis {{ currentUser.qualityOfLife }}</p>
+      </mat-card>
+      <mat-card style="display: flex;" *ngIf = "item.value == 4">
+          <li class="app-menu-item">
+              <a class="app-menu-link">
+                <span id="app-menu-voiture" class="app-menu-logo" [matBadge]="currentUser.nbCars" matBadgeColor="accent">
+                  V
+                </span>
+                <span class="app-menu-name">Voiture(s)</span>
+              </a>
+            </li>
+            <li class="app-menu-item" >
+              <a id="app-menu-maison" class="app-menu-link">
+                <span id="app-menu-maison" class="app-menu-logo" [matBadge]="currentUser.nbImmobiliers" matBadgeColor="accent">
+                  M
+                </span>
+                <span class="app-menu-name">Maison(s)</span>
+              </a>
+            </li>
+            <li class="app-menu-item">
+              <a id="app-menu-reputation" class="app-menu-link">
+                <span id="app-menu-reputation" class="app-menu-logo" [matBadge]="currentUser.reputation" matBadgeColor="accent">
+                  R
+                </span>
+                <span class="app-menu-name">Réputation</span>
+              </a>
+            </li>
+      </mat-card>
+      <mat-card style="display: flex; font-size: 20px;" *ngIf = "item.value == 5">
+          <span class="material-icons" style="font-size: 35px;">
+              settings
+              </span>
+          <a class="mnp" [routerLink]="['/compte']">Modifier mon profil</a>
+      </mat-card>
+      <mat-card style=" text-align: center; font-size: 20px;" *ngIf = "item.value == 6">
+          <p (click) = "logout()" style="cursor: pointer;">Déconnexion</p>
+      </mat-card>
+    </div>
+  </div>
+</div>

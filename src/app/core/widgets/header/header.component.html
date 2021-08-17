@@ -1,0 +1,51 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <div fxFill fxLayout="row" fxLayoutAlign="space-around center" class="header">
+      <div fxFlex fxLayout="row" fxLayoutAlign="start center">
+        <span class="app-menu-link" (click)="inputSideNav.toggle()">
+          <mat-icon *ngIf="currentUser">menu</mat-icon>
+        </span>
+        <span class="app-menu-link" [routerLink]='["/home"]'>
+          Roigle'Games
+        </span>
+      </div>
+      <div fxFlex fxLayout="row" fxLayoutAlign="end center" >
+        <div class="header-menu">
+          <span *ngIf="!currentUser" class="app-menu-link left1" (click)="authentication()">
+            Aller sur l'ile
+          </span>
+<!--
+          <span *ngIf="currentUser">
+            <mat-advanced-audio-player style="display: none;" [playlist]="msaapPlaylist"
+              [displayTitle]="msaapDisplayTitle" [autoPlay]="true" muted="muted"
+              [displayPlaylist]="msaapDisplayPlayList" [pageSizeOptions]="pageSizeOptions"
+              [displayVolumeControls]="msaapDisplayVolumeControls" [expanded]="true"></mat-advanced-audio-player>
+          </span> -->
+
+          <span *ngIf="currentUser" class="app-menu-link left">
+            <a (click)="changeShowAppMenu($event)">
+              <span class="material-icons" style="font-size: 35px; position: absolute; left: -35px; top: 10px;">
+                account_circle
+              </span>
+              <span style="position: absolute; top: 10px;">Mes infos</span>
+              <span class="material-icons" style="font-size: 35px; position: absolute; top: 10px; left: 100px;">
+                arrow_drop_down
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <app-info *ngIf="showAppMenu && currentUser"></app-info>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="currentUser" class="subheader">
+    <div class="mat-toolbar-back">
+      <span class="app-menu-link" *ngIf="displayBackButton" (click)="goBack($event)">
+        <mat-icon>arrow_back</mat-icon>
+      </span>
+    </div>
+    <app-subTitle></app-subTitle>
+  </mat-toolbar-row>
+
+</mat-toolbar>

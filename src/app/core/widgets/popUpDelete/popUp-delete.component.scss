@@ -1,0 +1,49 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+
+.btn button{
+  margin: 10px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-left: 15%;
+}
+
+.sup {
+  background-color: $color_first;
+  color: white;
+  font-size: 14px;
+  word-wrap: break-word;
+  width: 35%;
+}
+
+.nosup {
+  background-color: #d50000;
+  color: white;
+  width: 35%;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+.title {
+  padding: 10px;
+  margin: 0;
+  background-color: $color_first;
+  color: white;
+}
+
+.body {
+  padding: 10px;
+  margin: 0;
+  background-color: #ff8a80;
+  color: #d50000;
+}
+
+.text {
+  font-size: 20px;
+}
+

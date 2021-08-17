@@ -1,0 +1,163 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.body {
+  background-color: $color-third;
+  font-family: $default-font-family !important;
+  width: 100%;
+}
+
+.title {
+  color: #0dbab0;
+  font-family: $default-font-family !important;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.corps {
+  margin-top: 40px;
+}
+
+.search {
+  margin-left: 10%;
+
+  .formulaire {
+    display:inline-block;
+  }
+
+  .formulaire .champ {
+    border-radius: 25px;
+    border-color: $color_button;
+    width:325px;
+    padding:10px;
+  }
+}
+
+.middle {
+  @include flex-center-align;
+}
+
+.pagination {
+  background-color: $color-third;
+  font-family: $default-font-family !important;
+  color: white;
+  @include flex-center-align;
+}
+
+.card {
+  width: 25%;
+  height: 80px;
+  margin: 15px;
+  color: $color-first;
+
+  transition: height 1s ease-in-out, width 1s ease-in-out;
+  animation: fadein 1s ease-in-out;
+}
+
+.img {
+  font-size: 50px;
+  background-size: cover;
+}
+
+.content, .button {
+  display: none;
+}
+
+.card:hover {
+  width: 30%;
+  height: 260px;
+  transition: height 1s ease-in-out, width 1s ease-in-out;
+
+  .button {
+    @include flex-center-align;
+    border: none;
+  }
+
+  .button button {
+    margin-left: 20px !important;
+  }
+
+  .content {
+    display: flex;
+  }
+}
+
+.app-menu-item {
+  @include flex-center-align;
+  width: 100%;
+  height: 5.5rem;
+
+  &:hover {
+      border-radius: 2px;
+      .app-menu-link {
+          .app-menu-logo {
+              margin: 1.45rem 1.45rem 0 1.45rem;
+          }
+      }
+  }
+
+  .app-menu-link {
+      display: block;
+      overflow: hidden;
+      .app-menu-logo {
+          height: 2rem;
+          width: 2rem;
+          display: block;
+          margin: 1rem 1rem 0 1rem;
+          padding: 0.25rem;
+          font-size: 1.5rem;
+          font-weight: 300;
+          color: white;
+          border-radius: 2px;
+          &#app-menu-maison {
+              background: #0099c7;
+          }
+          &#app-menu-voiture {
+              background: #91c73f;
+          }
+          &#app-menu-reputation {
+              background: #7e3fc7;
+          }
+      }
+      .app-menu-name {
+          display: block;
+          color: $color_button;
+          text-align: center;
+          font-size: 0.9rem;
+      }
+    }
+}
+
+.noUsers {
+  @include flex-center-align;
+  margin-bottom: 175px;
+  margin-top: 130px;
+  font-size: 200%;
+  font-weight: bolder;
+  color: $color_button;
+}
+
+.follow
+ {
+  background-color: $color_button;
+  color: white;
+  font-family: $default-font-family !important;
+ }
+
+ .modifier {
+   background-color: $color_first;
+   color: white;
+   font-family: $default-font-family !important;
+ }
+
+ .supprimer {
+   background-color: darkred;
+   color: white;
+   font-family: $default-font-family !important;
+ }
+
+app-loader {
+  margin-top: 10px !important;
+}

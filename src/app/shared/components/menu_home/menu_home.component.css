@@ -1,0 +1,74 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.nav-text{
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.text-pseudo{
+  color: rgb(184, 158, 12);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.text-acceuil{
+  color: rgb(184, 158, 12);
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.bg-color{
+  background-color: white;
+}
+
+.bg-border{
+  border-top: 17px solid rgb(184, 158, 12);
+   width: 100%;
+}
+
+.ng-margin{
+  margin-right: 3px;
+}
+
+.ng-font{
+  font-weight: bolder;
+  margin-top: 10px;
+  font-size: 30px;
+  color: rgb(184, 158, 12);
+}
+
+.nav-link * {
+  vertical-align: middle;
+}
+
+.bt-menu:hover{
+  color: rgb(184, 158, 12);
+  border-right: 5px solid rgb(184, 158, 12);
+}
+
+.bt-menu-i:hover{
+  color: rgb(184, 158, 12);
+}
+
+.link-activee{
+  color: rgb(184, 158, 12);
+  border-right: 5px solid rgb(184, 158, 12);
+}
+
+.link-active{
+  color: rgb(184, 158, 12);
+  font-weight: bolder;
+}
+

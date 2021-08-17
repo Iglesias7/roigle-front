@@ -1,0 +1,38 @@
+<div class="body">
+  <div *ngIf="post && responses">
+
+    <div class="title">{{ post?.title || 'charge ...' }}</div>
+
+    <app-post-view [post]="post"></app-post-view>
+
+    <mat-toolbar class="nbResponses">
+      <mat-toolbar-row>
+        <span>{{ post?.nbResponses || '0' }}{{ '&nbsp;' }} réponse(s) à cette question</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="card-container" *ngFor="let response of responses">
+      <app-post-view [post]="response"></app-post-view>
+      <mat-divider></mat-divider>
+    </div>
+
+    <mat-toolbar class= "reponse">
+      <mat-toolbar-row>
+        <span>Votre réponse</span>
+        <span class="spacer"></span>
+        <mat-icon class="icon" aria-hidden="false" aria-label="chat">chat</mat-icon>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <angular-editor class="texarea" [placeholder]="'Entrer votre réponse...'" [(ngModel)]="responseBody"></angular-editor>
+
+    <button mat-raised-button class="btn-reponse" (click)="reply()">Poster votre réponse</button>
+  </div>
+
+  <div class="load" *ngIf="!post || !responses">
+    <p>Chargement en cours ...</p>
+    <mat-spinner class="mat-spinner"></mat-spinner>
+  </div>
+</div>
+
+

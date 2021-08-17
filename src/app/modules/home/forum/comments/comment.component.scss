@@ -1,0 +1,26 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+mat-card {
+  margin: 10px;
+  border: none;
+  border-bottom: 2px solid $color_button;
+  box-shadow: none !important;
+
+}
+
+mat-card-title {
+  font-size: 15px;
+}
+
+.update {
+  margin: 5px;
+  color: $color_first;
+  cursor: pointer;
+}
+
+.delet {
+  margin: 5px;
+  color: darkred;
+  cursor: pointer;
+}

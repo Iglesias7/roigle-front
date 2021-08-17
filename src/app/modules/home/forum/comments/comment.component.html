@@ -1,0 +1,14 @@
+
+<mat-card>
+    <mat-card-title>
+      <ngx-md>
+        {{ comment?.body }}
+      </ngx-md>
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      écrit par {{ comment?.user?.firstName }} at {{ comment?.timestamp | timeAgo }}
+      <mat-icon class="update" *ngIf = "currentUser.isAdmin || comment?.user.id === currentUser.id" (click)="update()">create</mat-icon>
+      <mat-icon class="delet" *ngIf = "currentUser.isAdmin || comment?.user.id === currentUser.id" (click)="delete()">delete_sweep</mat-icon>
+    </mat-card-subtitle>
+</mat-card>

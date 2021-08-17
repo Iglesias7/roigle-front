@@ -1,0 +1,49 @@
+
+
+<div>
+  <p class="title">Ajouter une nouvelle voiture</p>
+  <div class="body">
+    <form id="editForm" class="form" [formGroup]="editForm" novalidate>
+      <div class="form">
+        <mat-tab-group>
+          <mat-tab label="data">
+            <mat-form-field appearance="outline">
+              <mat-label style="color: #333957;">Nom</mat-label>
+              <input matInput placeholder="Nom" [formControl]="ctlName" required type="text">
+              <mat-error class="field-error" *ngIf="ctlName.hasError('required')">Required</mat-error>
+              <mat-error class="field-error" *ngIf="ctlName.hasError('minlength')">Minimum length is
+                {{ctlName.errors['minlength'].requiredLength}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label style="color: #333957;">Marque</mat-label>
+              <input matInput placeholder="Marque" [formControl]="ctlMark" required type="text">
+              <mat-error class="field-error" *ngIf="ctlMark.hasError('required')">Required</mat-error>
+              <mat-error class="field-error" *ngIf="ctlMark.hasError('minlength')">Minimum length is
+                {{ctlMark.errors['minlength'].requiredLength}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label style="color: #333957">Prix</mat-label>
+              <input matInput placeholder="Prix" [formControl]="ctlPrice" type="number" min="8000" max="80000">
+              <mat-error class="field-error" *ngIf="ctlPrice.hasError('required')">Required</mat-error>
+            </mat-form-field>
+          </mat-tab>
+          <mat-tab label="picture">
+            <div class="picture-container">
+              <img class="img-responsive" [src]="picturePath" width="200">
+              <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".png,.jpg,.gif">
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="footer">
+        <button type="submit" mat-button form="editForm"
+                [disabled]="editForm.pristine || editForm.invalid || editForm.pending"
+                (click)="update()">J'ajoute</button>
+        <button type="reset" mat-button (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+

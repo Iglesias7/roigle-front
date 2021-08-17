@@ -1,0 +1,164 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+* {
+  font-family: $default-font-family;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  min-height: 60vh;
+  padding: 30px;
+}
+
+.init {
+  position: absolute;
+  left: 40%;
+  top: 45%;
+  width: 200px;
+  background-color: $color_first;
+  color: white;
+}
+
+.stop {
+  position: absolute;
+  left: 17%;
+  width: 100px;
+  background-color: darkred;
+  color: white;
+}
+
+.example-boundary {
+  width: 1000px;
+  height: 800px;
+  max-width: 100%;
+  background-color: darkgreen;
+  border-radius: 20px;
+  position: relative;
+  padding: 20px;
+}
+
+.example-box {
+  min-width: 100px;
+  height: auto;
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: darkgreen;
+  margin-right: 25px;
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 0;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  &:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.hand {
+  min-width: 100px;
+  height: auto;
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  margin-right: 25px;
+  position: absolute;
+  z-index: 1;
+  left: 400px;
+  top: 400px;
+  box-sizing: border-box;
+  padding: 0;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+  &:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.adversaire {
+  min-width: 100px;
+  height: auto;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: $color_first;
+  margin-right: 25px;
+  position: absolute;
+  left: 300px;
+  padding: 15px;
+}
+
+.tour {
+  min-width: 100px;
+  height: auto;
+  border-radius: 20px;
+  //color: $color_button;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 25px;
+  position: absolute;
+  left: 700px;
+  padding: 15px;
+}
+
+
+.centre {
+  min-width: 100px;
+  height: auto;
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  margin-right: 25px;
+  position: absolute;
+  z-index: 1;
+  left: 400px;
+  top: 100px;
+  box-sizing: border-box;
+  padding: 0;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+
+

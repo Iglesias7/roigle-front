@@ -1,0 +1,51 @@
+<div>
+  <p class="title">Modfication des données d'un utilisateur</p>
+  <div class="body">
+
+    <form id="editForm" class="form" [formGroup]="editForm" novalidate>
+      <div class="form">
+
+        <mat-form-field appearance="outline">
+          <mat-label style="color: #333957;">Son nom</mat-label>
+          <input type="text" matInput placeholder="Son nom" [formControl]="ctlFirstName" require>
+          <mat-error class="field-error" *ngIf="ctlFirstName.hasError('required')">Required</mat-error>
+          <mat-error class="field-error" *ngIf="ctlFirstName.hasError('minlength')">Minimum length is
+            {{ctlFirstName.errors['minlength'].requiredLength}}</mat-error>
+          <mat-error class="field-error" *ngIf="ctlFirstName.hasError('maxlength')">Maximum length is
+            {{ctlFirstName.errors['maxlength'].requiredLength}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label style="color: #333957;">Son prénom</mat-label>
+          <input type="text" matInput placeholder="Son prénom" [formControl]="ctlLastName" require>
+          <mat-error class="field-error" *ngIf="ctlLastName.hasError('required')">Required</mat-error>
+          <mat-error class="field-error" *ngIf="ctlLastName.hasError('minlength')">Minimum length is
+            {{ctlLastName.errors['minlength'].requiredLength}}</mat-error>
+          <mat-error class="field-error" *ngIf="ctlLastName.hasError('maxlength')">Maximum length is
+            {{ctlLastName.errors['maxlength'].requiredLength}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label style="color: #333957">son email</mat-label>
+          <input matInput placeholder="son email" [formControl]="ctlEmail" require>
+          <mat-error class="field-error" *ngIf="ctlEmail.hasError('required')">Required</mat-error>
+          <mat-error class="field-error" *ngIf="ctlEmail.hasError('emailUsed')">cet email est déjà utilisé</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Sa date de naissance</mat-label>
+          <input matInput placeholder="Sa date de naissance" [formControl]="ctlBirthDate" type="date">
+          <mat-error class="field-error" *ngIf="ctlBirthDate.hasError('tooYoung')">ce site est reservé pour les majeurs
+          </mat-error>
+          <mat-error class="field-error" *ngIf="ctlBirthDate.hasError('futureBorn')">veillez entrer une date en dessous de celui-ci
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="footer">
+        <button type="submit" mat-button form="editForm"
+          [disabled]="editForm.pristine || editForm.invalid || editForm.pending" (click)="update()">Je modifier</button>
+        <button type="reset" mat-button (click)="cancel()">J'annule</button>
+      </div>
+    </form>
+  </div>
+</div>

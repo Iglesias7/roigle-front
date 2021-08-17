@@ -1,0 +1,101 @@
+<div class="body">
+
+  <mat-card class="container">
+    <div class="profile">
+    </div>
+    <img [src]="'assets/logos/unknow.jpg'" alt="picture-path" />
+
+    <div class="editMsg">
+      <p>Clicker sur le crayon pour éditer vos données</p>
+      <span class="material-icons" (click)="show = !show">
+        edit
+      </span>
+      <p *ngIf="checked" (click)="enLigne()" style="background-color: grey" ><mat-slide-toggle [checked]="checked" >Me mettre hors ligne</mat-slide-toggle></p>
+      <p *ngIf="!checked" (click)="enLigne()" style="background-color: grey"><mat-slide-toggle [checked]="checked">Me mettre en ligne</mat-slide-toggle></p>
+    </div>
+
+    <div class="profile-name">
+      <h1>{{form.get('firstName').value}}{{" "}}{{form.get('lastName').value}}</h1>
+      <p>{{form.get('email').value}}</p>
+    </div>
+
+    <div *ngIf="show" class="edit">
+      <form id="editForm" [formGroup]="form" novalidate>
+        <div class="form">
+          <mat-form-field appearance="outline">
+            <mat-label>Votre nom</mat-label>
+            <input matInput placeholder="Votre nom" formControlName="firstName">
+            <mat-error class="field-error" *ngIf="form.get('firstName').hasError('minlength')">
+              Minimum length is {{form.get('firstName').errors['minlength'].requiredLength}}
+            </mat-error>
+            <mat-error class="field-error" *ngIf="form.get('firstName').hasError('maxlength')">
+              Maximum length is {{form.get('firstName').errors['maxlength'].requiredLength}}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Votre prénom</mat-label>
+            <input matInput placeholder="Votre prénom" formControlName="lastName">
+            <mat-error class="field-error" *ngIf="form.get('lastName').hasError('minlength')">
+              Minimum length is {{form.get('lastName').errors['minlength'].requiredLength}}
+            </mat-error>
+            <mat-error class="field-error" *ngIf="form.get('lastName').hasError('maxlength')">
+              Maximum length is {{form.get('lastName').errors['maxlength'].requiredLength}}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Votre email</mat-label>
+            <input matInput placeholder="Votre email" formControlName="email" >
+            <mat-error class="field-error" *ngIf="form.get('email').hasError('emailUsed')">
+              this email is already used
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Votre date de naissance</mat-label>
+            <input autofocus readonly autocomplete="off" matInput [matDatepicker]="picker" formControlName="birthDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error class="field-error" *ngIf="form.get('birthDate').hasError('tooYoung')">
+              you re' too young
+            </mat-error>
+            <mat-error class="field-error" *ngIf="form.get('birthDate').hasError('futureBorn')">
+              this Birthdate is bad
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>La mise maximale que j'accepte</mat-label>
+            <input matInput  formControlName="maxMise" type="number" max = "10000000">
+          </mat-form-field>
+        </div>
+
+        <button type="submit"
+                mat-button form="form"
+                [disabled]="form.pristine || form.invalid || form.pending"
+                (click)="update()">
+          Mettre à jour
+        </button>
+      </form>
+    </div>
+
+    <button class="btn"
+            (click)="delete = true" mat-raised-button
+            color="warn">
+      Supprimer mon compte
+    </button>
+    <mat-card class="example-card"
+              *ngIf="delete"
+              style="margin-left: 50%; margin-top: 20px; text-align: center; box-shadow: none">
+      <mat-card-content>
+        <p class="txt">
+          Voulez-vous vraiment quité Roigle ?
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color = "warn" (click)="deleteUser()">Je quitte</button>
+        <button mat-button style="color: #558b2f;" (click)="delete = false">Je ne quitte pas</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-card>
+</div>

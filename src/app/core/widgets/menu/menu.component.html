@@ -1,0 +1,40 @@
+<mat-nav-list>
+  <a mat-list-item
+    [routerLink]="['/home']"
+    [ngClass]="{'menu-actif':isActiveItemMenu('tableau-bord')}">
+      {{ 'MENU.TABLEAU_BORD' | translate }}
+      <span class="material-icons">
+        house
+      </span>
+  </a>
+  <a mat-list-item [routerLink]="['/commune']"
+    [ngClass]="{'menu-actif':isActiveItemMenu('commune')}" >
+      {{ 'MENU.COMMUNE' | translate }}
+  </a>
+  <a mat-list-item
+    [routerLink]="['/achats']"
+    [ngClass]="{'menu-actif':isActiveItemMenu('achats-immobilier')}">
+      {{ 'MENU.ACHATS_IMMOBILIER' | translate }}
+  </a>
+  <a mat-list-item
+    [routerLink]="['/choice']"
+    [ngClass]="{'menu-actif':isActiveItemMenu('poker')}"
+    >
+      {{ 'MENU.POKER' | translate }}
+  </a>
+  <a mat-list-item
+    [routerLink]="['/banque']"
+    [ngClass]="{'menu-actif':isActiveItemMenu('banque')}">
+      {{ 'MENU.BANQUE' | translate }}
+  </a>
+  <a mat-list-item
+    [routerLink]="['/discotheque']"
+    [ngClass]="{'menu-actif':isActiveItemMenu('discothèque')}">
+      {{ 'MENU.DISCOTHEQUE' | translate }}
+  </a>
+  <a mat-list-item
+    [routerLink]="['/forum']"
+    [ngClass]="{'menu-actif':isActiveItemMenu('forum')}">
+      {{ 'MENU.FORUM' | translate }}
+  </a>
+</mat-nav-list>

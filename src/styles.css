@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import "styles/color"; */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Sofia Pro Regular',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mat-snack-bar-container.snack-success {
+  background-color: #a5d6a7;
+  color: #1b5e20;
+  min-width: 100%;
+}
+
+.mat-snack-bar-container.snack-error {
+  background-color: #ff8a80;
+  color: #d50000;
+  min-width: 100%;
+}
+
+.mat-snack-bar-container.snack-alert {
+  background-color: #ffd54f;
+  color: #ffc107;
+  min-width: 150%;
+}
+
+.mat-snack-bar-container.snack-info {
+  background-color: #84ffff;
+  color: #00b8d4;
+  min-width: 150%;
+}
+
+.mat-snack-bar-container .flex {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.popUp-delete .mat-dialog-container{
+  width: 600px;
+  padding: 0;
+  border-radius: 25px;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #0dbab0;
+}

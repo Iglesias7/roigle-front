@@ -1,0 +1,111 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+
+* {
+  font-family: $default-font-family;
+}
+
+.body {
+  @include flex-center-align;
+  min-height: 80vh;
+  padding: 30px;
+}
+
+.search {
+  margin-bottom: 10%;
+
+  .formulaire {
+    display:inline-block;
+  }
+
+  .formulaire .champ {
+    border-color: $color_button;
+    border-radius: 5px;
+    width:360px;
+    padding:10px;
+  }
+}
+
+
+
+.load {
+  margin-top: 20%;
+  text-align: center;
+  color: $color_button;
+}
+
+.load > .mat-spinner {
+  margin-top: 5%;
+  margin-left: 35%;
+}
+
+.not {
+  margin-top: 30%;
+  margin-bottom: 20%;
+  text-align: center;
+  color: $color_first;
+  font-weight: bolder;
+}
+
+
+.list{
+  border: 8px solid $color_first;
+  background-color: $color_menu;
+  overflow-y: hidden;
+  padding: 10px;
+  height: 50vh;
+
+  .take {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    color: white;
+    background-color: $color_button;
+
+    &:hover {
+      color: $color_button;
+      background-color: $color_first;
+    }
+  }
+}
+
+.card {
+  @include flex-center-align;
+  width: 100%;
+  margin: 5px;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+
+.play {
+  margin-left: 50px;
+  height: 50vh;
+  padding: 20px;
+  text-align: center;
+}
+
+.cardP {
+  background-color: $color_first;
+  width: 200px;
+  color: white;
+  margin: 10px;
+}
+
+.btn {
+  background-color: $color_first;
+  width: 200px;
+  color: $color_button;
+  font-size: 100%;
+
+  &:hover {
+    background-color: $color_button;
+    color: white;
+  }
+}
+
+
+

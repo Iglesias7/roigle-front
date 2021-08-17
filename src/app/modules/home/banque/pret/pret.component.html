@@ -1,0 +1,43 @@
+<div>
+  <p class="title"> {{ data !== null ? 'Je demande un pret à un(e) ami(e)' : 'Je demande un pret à la Banque'}}</p>
+  <div class="body">
+
+    <form id="editForm" class="form" [formGroup]="editForm" novalidate>
+        <div class="form"  >
+          <mat-form-field appearance="outline">
+              <mat-label>Je veux </mat-label>
+              <input matInput placeholder="Je veux (150 000 max)" [formControl]="ctlMontant" type="number" min="500" max="150000">
+              <mat-error class="field-error" *ngIf="ctlMontant.hasError('required')">Required</mat-error>
+            <mat-error class="field-error" *ngIf="ctlMontant.hasError('somme')">max 150 000 roig-coin</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+              <mat-label>Le delai</mat-label>
+              <input matInput placeholder="Le delai" [formControl]="ctlDelai" type="date">
+              <mat-error class="field-error" *ngIf="ctlDelai.hasError('required')">Required</mat-error>
+              <mat-error class="field-error" *ngIf="ctlDelai.hasError('avant')">
+                Choisissez une date ultérieur svp
+                </mat-error>
+                <mat-error class="field-error" *ngIf="ctlDelai.hasError('plus')">
+                  ne dois pas dépassé deux mois
+                </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+              <mat-label style="color: black;">Message</mat-label>
+              <textarea matInput  placeholder="Message" [formControl]="ctlMessage" required type="text"></textarea>
+              <mat-error class="field-error" *ngIf="ctlMessage.hasError('required')">Required</mat-error>
+              <mat-error class="field-error" *ngIf="ctlMessage.hasError('minlength')">Minimum length is
+                  {{ctlMessage.errors['minlength'].requiredLength}}</mat-error>
+          </mat-form-field>
+
+        </div>
+        <div class="footer">
+            <button type="submit" mat-raised-button form="editForm"
+            [disabled]="editForm.pristine || editForm.invalid || editForm.pending"
+            (click)="preter()">J'emprunte</button>
+            <button type="reset" mat-raised-button (click)="cancel()">J'annule</button>
+        </div>
+    </form>
+  </div>
+</div>

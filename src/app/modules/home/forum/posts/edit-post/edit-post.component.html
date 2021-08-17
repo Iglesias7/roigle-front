@@ -1,0 +1,33 @@
+
+
+    <div>
+        <p class="title">{{(!isNew ? 'Editer ce' : 'Ajouter un nouveau') + ' post'}}</p>
+        <div class="body">
+
+          <form id="editPostForm" class="form" [formGroup]="editPostForm" novalidate>
+              <div class="form"  >
+                <mat-form-field *ngIf = "isQuestion" appearance="outline">
+                  <mat-label>Title</mat-label>
+                  <input matInput placeholder="Title" [formControl]="ctlTitle" appSetFocus >
+                  <mat-error class="field-error" *ngIf="ctlTitle.hasError('required')">Required</mat-error>
+                </mat-form-field>
+
+                <angular-editor class="texarea" [config]="editorConfig" [placeholder]="'Entrer votre question ...'" [formControl]="ctlBody"></angular-editor>
+                <mat-error class="field-error" *ngIf="ctlBody.hasError('required')">Vous etes obligé de renseigner ce champs.</mat-error>
+              </div>
+
+              <div class="footer">
+                  <button type="submit" *ngIf = "!isQuestion" mat-raised-button form="editPostForm"
+                  [disabled]="ctlBody.pristine || ctlBody.invalid || ctlBody.pending"
+                  (click)="update()">Je poste</button>
+
+                  <button type="submit" *ngIf = "isQuestion" mat-raised-button form="editPostForm"
+                  [disabled]="editPostForm.pristine || editPostForm.invalid || editPostForm.pending"
+                  (click)="update()">Je poste</button>
+
+                  <button type="reset" mat-raised-button (click)="cancel()">J'annule</button>
+              </div>
+          </form>
+        </div>
+      </div>
+

@@ -1,0 +1,68 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.first {
+  background-color: $color_first;
+  height: 100vh;
+}
+
+.img {
+  height: 400px;
+  width: 200px;
+  position: absolute;
+  top: 20vh;
+}
+
+.one {
+  left: 35%;
+  transform: rotate(-50deg);
+}
+
+.two {
+  left: 40%;
+  transform: rotate(-10deg);
+}
+
+.tree {
+  left: 45%;
+  transform: rotate(25deg);
+}
+
+.foor {
+  left: 50%;
+  transform: rotate(50deg);
+}
+
+.p {
+  position: absolute;
+  color: white;
+  font-weight: bolder;
+  font-size: 40px;
+  top: 70vh;
+  left: 39%;
+}
+
+.body{
+  display:flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction:row;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items:center;
+
+  background-image: url("../../../../assets/portail/commune.jpg");
+  background-size: cover;
+}
+
+.body div {
+  background-color: $color_first;
+  opacity: 0.7;
+  color: white;
+  font-weight: bolder;
+  padding: 10px;
+  margin: 30px;
+  border-radius: 25px;
+  position: absolute;
+  top: 100vh;
+}

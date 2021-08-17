@@ -1,0 +1,21 @@
+
+    <div>
+        <p class="title">{{(!isNew ? 'Editer un' : 'Ajouter un') + ' commentaire'}}</p>
+        <div class="body">
+          <form id="editCommentForm" class="form" [formGroup]="editCommentForm" novalidate>
+              <div class="form">
+                  <angular-editor class="texarea" [config]="editorConfig" [placeholder]="'Entrer votre réponse...'" [formControl]="ctlBody"></angular-editor>
+                  <mat-error class="field-error" *ngIf="ctlBody.hasError('required')">Vous etes obligé de renseigner ce champs.</mat-error>
+              </div>
+
+              <div class="footer">
+                  <button type="submit" mat-raised-button form="editCommentForm"
+                  [disabled]="editCommentForm.pristine || editCommentForm.invalid || editCommentForm.pending"
+                  (click)="update()">{{!isNew ? 'Je modifie' : 'je commente'}}</button>
+
+                  <button type="reset" mat-raised-button (click)="cancel()">J'annule</button>
+              </div>
+          </form>
+        </div>
+      </div>
+

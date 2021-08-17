@@ -1,0 +1,13 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+
+mat-sidenav-container {
+  background: $color_third;
+  border: none !important;
+  font-family: $default-font-family;
+}
+
+.menu {
+  width: 250px;
+}

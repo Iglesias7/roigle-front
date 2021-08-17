@@ -1,0 +1,29 @@
+<div class="body">
+  <div class="example-boundary">
+
+     <div class="example-box" (dblclick) = "addHand()" >
+      <img src="../../../../../assets/js/svg/cardback_red.svg" alt="bank">
+    </div>
+
+    <div class="centre" *ngIf="centre">
+      <img [src]="centre?.image" alt="card?.number">
+    </div>
+
+    <div class="hand" *ngFor="let card of hand1" (dblclick) = "addCentre(card)"
+      cdkDragBoundary=".example-boundary" cdkDrag>
+      <img [src]="card?.image" alt="card?.number">
+    </div>
+
+    <div *ngIf="centre" class="adversaire" [ngStyle] = "{backgroundColor: backcolor2, color: color2 }">
+      <p>Nombre de cartes restantante de mon adversaire: {{ adversaire?.hand.length }}</p>
+    </div>
+
+    <div *ngIf="centre" [ngStyle] = "{backgroundColor: backcolor1, color: color1 }" class="tour" >
+      <p>Au tour de : {{ tour }}</p>
+    </div>
+
+    <button *ngIf="centre" class="stop" mat-raised-button (click) = "stop()">Stop</button>
+
+    <button *ngIf="!centre && hand1.length === 0 && hand2.length === 0" class="init" mat-raised-button (click) = "init()">Lancer le jeu</button>
+  </div>
+</div>

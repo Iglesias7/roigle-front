@@ -1,0 +1,74 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.body{
+  text-align: center;
+  padding: 30px;
+  min-height: 1200px;
+}
+
+.html {
+  @include flex-center-align;
+}
+
+.title{
+  color: $color_button;
+  font-weight: bolder;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+mat-card-header {
+  width: 100%;
+  color: $color_button;
+  @include flex-center-align;
+}
+
+mat-card-actions {
+  @include flex-center-align;
+  width: 100%;
+  color: $color_button;
+
+  button {
+    width: 15%;
+  }
+}
+
+.card{
+  @include flex-center-align;
+  width: 900px;
+
+  .card mat-card-header{
+    color: darkcyan;
+  }
+
+  .content{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+  }
+
+  .sub-card{
+    width: 100px;
+    height: 200px;
+    margin: 5px;
+  }
+
+  .vide {
+    @include flex-center-align;
+    width: 100%;
+    color: $color_first;
+    font-size: 20px;
+  }
+}
+
+.panier {
+  margin-top: 40px;
+}
+
+.pagination {
+  background-color: $color-button;
+  font-family: $default-font-family !important;
+  color: white;
+  @include flex-center-align;
+}

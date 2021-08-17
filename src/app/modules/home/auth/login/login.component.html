@@ -1,0 +1,30 @@
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+    <h1 class="header">Prendre un vol vers l'ile ROILE</h1>
+    <div class="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email"  [formControl]="ctlEmail" required appSetFocus>
+          <mat-icon matSuffix class="icon">email</mat-icon>
+          <mat-error class="field-error" *ngIf="ctlEmail.hasError('required')">Required</mat-error>
+          <mat-error class="field-error" *ngIf="ctlEmail.hasError('custom')">{{ctlEmail.errors.custom}}</mat-error>
+          <mat-error class="field-error" *ngIf="ctlEmail.hasError('emailNotExist')">this email is not exist </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password"  [type]="hide ? 'password' : 'text'"  [formControl]="ctlPassword" required appSetFocus>
+          <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon class="icon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </a>
+          <mat-error class="field-error" *ngIf="ctlPassword.hasError('required')">Required</mat-error>
+          <mat-error class="field-error" *ngIf="ctlPassword.hasError('badPassword')">bad password</mat-error>
+          <mat-error class="field-error" *ngIf="ctlPassword.hasError('custom')">{{ctlPassword.errors.custom}}</mat-error>
+        </mat-form-field>
+        <p>Pas encore de compte ? <a style="color: blue;" >Inscrivez-vous</a> maintenant.</p>
+
+    </div><br>
+    <div class="btn">
+        <button [disabled]="loginForm.pristine || loginForm.invalid || loginForm.pending" mat-stroked-button >Voyager</button>
+    </div>
+</form>

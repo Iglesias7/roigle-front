@@ -1,0 +1,72 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.body {
+  padding: 50px;
+}
+
+.filtre {
+  @include flex-center-align;
+  margin-bottom: 70px;
+
+  .__btn {
+    background-color: $color_first;
+    color: $color_button;
+    position: absolute;
+    left: 50px;
+
+    &:hover {
+      background-color: $color_button;
+      color: white;
+    }
+  }
+
+  .__search {
+    margin-left: 10%;
+    position: absolute;
+    right: 50px;
+
+    .champ {
+      border-radius: 25px;
+      border-color: $color_button;
+      width: 325px;
+      padding: 10px;
+    }
+
+    ::placeholder {
+      color: $color_button;
+    }
+  }
+}
+
+.card {
+  margin-top: 20px;
+  box-shadow: none;
+}
+
+.title {
+  color: $color_button !important;
+}
+
+.text {
+  font-size: 17px;
+  color: $color_first;
+}
+
+.load {
+  margin-top: 8%;
+  text-align: center;
+  color: $color_button;
+}
+
+.load > .mat-spinner {
+  margin-top: 5%;
+  margin-left: 45%;
+}
+
+.pagination {
+  background-color: $color-third;
+  font-family: $default-font-family !important;
+  color: white;
+  @include flex-center-align;
+}

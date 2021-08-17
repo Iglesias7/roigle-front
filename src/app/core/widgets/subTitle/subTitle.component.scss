@@ -1,0 +1,22 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.sub {
+  display: flex;
+}
+
+.sub h6 {
+  font-family: $default-font-family !important;
+  width: 100%;
+}
+
+.arrow-path {
+    margin: 0 0.7rem;
+    svg {
+        height: 0.75rem;
+        width: 0.5rem;
+        path {
+            fill: white;
+        }
+    }
+}

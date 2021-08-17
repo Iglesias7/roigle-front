@@ -1,0 +1,66 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+footer {
+  width: 100%;
+  background: $color_first;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-family: $default-font-family;
+  height: 500px;
+  @media only screen and (max-width: 450px){
+      flex-direction: column;
+  }
+}
+
+div {
+  width: 33%;
+  top: 30px;
+
+  padding: 20px;
+  @media only screen and (max-width: 415px){
+      text-align: center;
+  }
+
+  @media only screen and (max-width: 850px){
+      padding: 8px;
+  }
+}
+
+a {
+  color: #f5f3f0;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Sofia Pro Semi' Bold;
+  @media only screen and (max-width: 415px){
+      text-align: center;
+  }
+}
+
+.title {
+  color: white;
+  font-family: 'Sofia Pro Semi' Bold;
+  font-size: 24px;
+  @media only screen and (max-width: 415px){
+    text-align: center;
+  }
+}
+
+.p {
+  color: white;
+  font-family: 'Sofia Pro Semi' Bold;
+  font-size: 16px;
+  @media only screen and (max-width: 415px){
+      text-align: center;
+  }
+}
+
+.menlegal {
+  color: "#f5f3f0";
+  text-decoration: "none";
+  font-size: "16px";
+  font-family: "Sofia Pro Semi Bold";
+}

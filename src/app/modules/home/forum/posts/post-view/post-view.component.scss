@@ -1,0 +1,109 @@
+@import "src/styles/color";
+@import "src/styles/settings";
+
+.btn {
+  background-color: $color_first;
+  color: white;
+  margin-bottom: 30px;
+
+  &:hover {
+    background-color: $color_second;
+  }
+}
+
+.body {
+  padding: 50px;
+}
+
+.filtre {
+  @include flex-center-align;
+
+  .__group {
+    margin-right: 10%;
+
+    .btnnewest {
+      height: 60px;
+      background-color: $color_second;
+      color: white !important;
+      width: 100px;
+      border-radius: 0;
+    }
+
+    .btnvotes {
+      height: 60px;
+      background-color: black;
+      color: white !important;
+      width: 100px;
+      border-radius: 0;
+    }
+
+    .btnactive {
+      height: 60px;
+      background-color: $color_menu;
+      color: white !important;
+      width: 100px;
+      border-radius: 0;
+    }
+  }
+
+  .__search {
+    margin-left: 10%;
+    margin-top: 2%;
+  }
+
+  >mat-form-field {
+    width: 30%;
+  }
+}
+
+.card {
+  margin-top: 20px;
+  box-shadow: none;
+  box-shadow: 0 0 5px #0dbab0, 0 0 10px #0dbab0, 0 0 15px #0dbab0;
+
+}
+
+.text {
+  font-size: 17px;
+  color: $color_second;
+}
+
+.bt {
+  @include flex-center-align;
+
+  .update {
+    margin: 5px;
+    color: white;
+    background-color: $color_first;
+  }
+
+  .delet {
+    margin: 5px;
+    color: white;
+    background-color: darkred;
+  }
+}
+
+.add {
+  color: $color_button;
+  font-size: 37px;
+  cursor: pointer;
+}
+
+.show-comment {
+  border: none;
+  box-shadow: none;
+  color: $color_button;
+  background-color: white;
+}
+
+.load {
+  margin-top: 8%;
+  text-align: center;
+  color: $color_first;
+}
+
+.load > .mat-spinner {
+  margin-top: 5%;
+  margin-left: 45%;
+}
